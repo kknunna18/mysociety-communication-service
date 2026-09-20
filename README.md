@@ -1,6 +1,14 @@
 # MySociety Communication Service
 
-Spring Boot 3 / Java 21 tenant-isolated API for notices, documents, templates, and notification status. It uses the existing `mysociety` schema and validates it with Hibernate; run the canonical schema script before starting.
+Spring Boot 3 / Java 21 tenant-isolated API for notices, documents, templates, and notification status. It uses the existing `mysociety` schema and validates it with Hibernate; provision the service-owned schema before starting.
+
+## Database provisioning
+
+Apply [`database/migrations/V1__communication_schema.sql`](database/migrations/V1__communication_schema.sql)
+to PostgreSQL 16+ before starting the service. See
+[`database/README.md`](database/README.md) for the explicit `psql` command,
+service-boundary rules, and why external UUID references have no database
+foreign keys.
 
 ## Local run
 

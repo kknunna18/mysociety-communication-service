@@ -1,0 +1,23 @@
+server:
+  port: 8086
+  servlet.context-path: /api/v1
+spring:
+  application.name: mysociety-communication-service
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate.ddl-auto: validate
+    properties.hibernate.default_schema: mysociety
+  security:
+    oauth2.resourceserver.jwt.issuer-uri: mysociety-identity
+management:
+  endpoints.web.exposure.include: health,prometheus
+  endpoint.health.probes.enabled: true
+  tracing.sampling.probability: 1.0
+springdoc:
+  api-docs.path: /openapi
+  swagger-ui.path: /swagger-ui.html
+communication:
+  jwt.secret: ${COMMUNICATION_JWT_SECRET}

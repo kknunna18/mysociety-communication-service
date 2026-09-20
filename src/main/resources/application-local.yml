@@ -1,0 +1,6 @@
+spring:
+  config.activate.on-profile: local
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/mysociety}
+    username: ${DB_USERNAME:mysociety}
+    password: ${DB_PASSWORD:mysociety}

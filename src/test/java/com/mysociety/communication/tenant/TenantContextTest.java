@@ -15,7 +15,7 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 
 class TenantContextTest {
-    private final TenantContext context = new TenantContext();
+    private final TenantContext context = new TenantContext(null, false);
 
     @AfterEach
     void clear() {

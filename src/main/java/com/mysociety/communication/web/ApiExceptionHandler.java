@@ -18,8 +18,8 @@ class ApiExceptionHandler {
     }
 
     @ExceptionHandler(AccessDeniedException.class)
-    ProblemDetail denied(HttpServletRequest r) {
-        ProblemDetail p = ProblemDetail.forStatusAndDetail(HttpStatus.FORBIDDEN, "Tenant access denied");
+    ProblemDetail denied(AccessDeniedException e, HttpServletRequest r) {
+        ProblemDetail p = ProblemDetail.forStatusAndDetail(HttpStatus.FORBIDDEN, "Tenant access denied: " + e.getMessage());
         p.setProperty("path", r.getRequestURI());
         return p;
     }

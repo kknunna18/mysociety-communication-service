@@ -17,3 +17,7 @@ should obtain recipient contact data from the identity service and must not log 
 versioned Kafka/Cloud Stream contract; bind it to Kafka only via deployment configuration. The default build has no
 Kafka or Docker dependency. Replace the in-memory event idempotency boundary with the canonical
 `mysociety.idempotency_records` transactional store when enabling a consumer group.
+
+## Database
+
+Schema migrations and notes are in [database/](database/README.md).

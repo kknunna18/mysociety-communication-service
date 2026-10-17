@@ -1,0 +1,25 @@
+server:
+  port: 8086
+  servlet.context-path: /api/v1
+spring:
+  application.name: mysociety-communication-service
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/mysociety?currentSchema=mysociety}
+    username: ${DATABASE_USERNAME:mysociety}
+    password: ${DATABASE_PASSWORD:mysociety}
+  jpa:
+    hibernate.ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate.default_schema: mysociety
+      hibernate.jdbc.time_zone: UTC
+management:
+  endpoints.web.exposure.include: health,prometheus
+  endpoint.health.probes.enabled: true
+  tracing.sampling.probability: 1.0
+springdoc:
+  api-docs.path: /openapi
+  swagger-ui.path: /swagger-ui.html
+communication:
+  jwt.secret: ${COMMUNICATION_JWT_SECRET:8fK9xP2mQ7vL1zN4rT6yU0aS3dH5jW8c}
+  tenant.membership-fallback: ${COMMUNICATION_TENANT_MEMBERSHIP_FALLBACK:true}

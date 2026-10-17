@@ -1,0 +1,4 @@
+spring:
+  config.activate.on-profile: local
+  jpa.show-sql: true
+communication.jwt.secret: ${COMMUNICATION_JWT_SECRET:8fK9xP2mQ7vL1zN4rT6yU0aS3dH5jW8c}
